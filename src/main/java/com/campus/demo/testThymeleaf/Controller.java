@@ -6,6 +6,8 @@
 package com.campus.demo.testThymeleaf;
 
 import java.util.HashMap;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,33 +24,36 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
 //    HashMap<Integer, car> ListCars = new HashMap<Integer, car>();
-    Dao dao = new Dao();
+    @Autowired
+    private IDAO dao ;
 
     
 
     @GetMapping("/Cars")
-    public HashMap<Integer, car> getListCars() {
-        return dao.getListCars();
+    public List<Car> getListCars() {
+    
+        return dao.findAll();
     }
 
     @GetMapping(value= "/Cars/{ID}")
-    public car getCarsByID(@PathVariable Integer ID) {
-        car car = dao.getListCars().get(ID);
+    public Car getCarsByID(@PathVariable Integer ID) {
+        Car car = dao.getOne(ID);
         return car;
     }
     
     @PostMapping(value ="/Cars", consumes ="application/json")
-    public void addCar(@RequestBody car newCar){
-        dao.addCar(newCar);
+    public void addCar(@RequestBody Car newCar){
+        
+        dao.save(newCar);
     }
 
     @DeleteMapping(value = "/Cars/{ID}")
     public void deleteCar(@PathVariable Integer ID){
-        dao.deleteCar(ID);
+        dao.deleteById(ID);
     }
     
     @PutMapping(value = "/Cars/{ID}", consumes ="application/json")
-    public void modifyCar(@RequestBody car newCar , @PathVariable Integer ID){
-        dao.modifyCar(newCar);
+    public void modifyCar(@RequestBody Car newCar , @PathVariable Integer ID){
+        dao.save(newCar);
     }
 }

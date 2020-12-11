@@ -5,18 +5,24 @@
  */
 package com.campus.demo.testThymeleaf;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  *
  * @author Mickael_L
  */
-public class car {
-    
+@Entity
+public class Car {
+      @Id
+    @GeneratedValue
     Integer ID;
     String modele;
     String couleur;
     String marque;
     
-    public car(Integer ID , String modele,String couleur , String marque){
+    public Car(Integer ID , String modele,String couleur , String marque){
         this.ID=ID;
         this.couleur=couleur;
         this.marque=marque;

@@ -1,6 +1,6 @@
 package com.campus.demo.testThymeleaf;
 
-import com.campus.demo.testThymeleaf.car;
+import com.campus.demo.testThymeleaf.Car;
 import java.util.HashMap;
 
 /*
@@ -14,34 +14,34 @@ import java.util.HashMap;
  */
 public class Dao {
 
-    HashMap<Integer, car> ListCars = new HashMap<Integer, car>();
-
-    public Dao() {
-        ListCars.put(1, mustang);
-        ListCars.put(2, clio);
-        ListCars.put(3, twingo);
-    }
-    car mustang = new car(1, "mustang", "noire", "Ford");
-    car clio = new car(2, "clio", "grise", "Renault");
-    car twingo = new car(3, "Twingo", "verte", "Renault");
-
-    public HashMap<Integer, car> getListCars() {
-
-        return ListCars;
-    }
-
-    public void addCar(car car) {
-
-        ListCars.put(car.getID(), car);
-    }
-
-    public void deleteCar(Integer ID) {
-        ListCars.remove(ID);
-    }
-
-    public void modifyCar(car newCar) {
-
-        ListCars.remove(newCar.getID());
-        ListCars.put(newCar.getID(), newCar);
-    }
+//    HashMap<Integer, car> ListCars = new HashMap<Integer, car>();
+//
+//    public Dao() {
+//        ListCars.put(1, mustang);
+//        ListCars.put(2, clio);
+//        ListCars.put(3, twingo);
+//    }
+//    car mustang = new car(1, "mustang", "noire", "Ford");
+//    car clio = new car(2, "clio", "grise", "Renault");
+//    car twingo = new car(3, "Twingo", "verte", "Renault");
+//
+//    public HashMap<Integer, car> getListCars() {
+//
+//        return ListCars;
+//    }
+//
+//    public void addCar(car car) {
+//
+//        ListCars.put(car.getID(), car);
+//    }
+//
+//    public void deleteCar(Integer ID) {
+//        ListCars.remove(ID);
+//    }
+//
+//    public void modifyCar(car newCar) {
+//
+//        ListCars.remove(newCar.getID());
+//        ListCars.put(newCar.getID(), newCar);
+//    }
 }
